@@ -4,24 +4,24 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
-    const handleRegister = e => {
-        e.preventDefault();
-        const form = new FormData(e.currentTarget);
-        const name = form.get('name');
-        const photoUrl = form.get('photoUrl');
-        const email = form.get('email');
-        const password = form.get('password');
-        console.log(name,photoUrl,email,password);
+  const { createUser } = useContext(AuthContext);
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get("name");
+    const photoUrl = form.get("photoUrl");
+    const email = form.get("email");
+    const password = form.get("password");
+    console.log(name, photoUrl, email, password);
 
-        createUser(email,password)
-            .then(result => {
-                console.log(result.user);
-            })
-            .then(error => {
-                console.error(error);
-            })
-    }
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .then((error) => {
+        console.error(error);
+      });
+  };
   return (
     <div>
       <Navbar></Navbar>
